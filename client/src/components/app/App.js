@@ -1,20 +1,25 @@
-import Header from '../header/header';
-import MainPage from '../../pages/MainPage';
 
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
+import MainPage from '../../pages/MainPage';
+import LoginOrSing from "../../pages/Login";
+import Footer from '../footer/footer';
 import './App.css';
 
 
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <main>
-        <MainPage/>
+    <Router>
+      <div className="App">
+        {/* <Header/> */}
+        <Routes>
+          <Route path="/" element={<MainPage/>}/>
 
-      </main>
-    </div>
-  );
+          <Route path="/exit" element={<LoginOrSing/>}/>
+        </Routes>
+      </div>
+    </Router>);
 }
 
 export default App;
