@@ -19,6 +19,12 @@
     margin-right: 10px;
 }
 
+.header a:hover {
+    background-color: #020202b0;
+    color: #fff;
+    transition: all .5s;
+}
+
 
 .header__nav {
     margin: 0 auto;

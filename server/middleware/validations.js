@@ -9,6 +9,15 @@ const messages = {
     description: 'Поле детальніше повинно містити мінімум 30 та максимум 150 символів',
     universal: 'Некоректне поле ',
 }
+const isValid = (value) => {
+    const allowedStatus = ['for-sale', 'appear', 'sold', 'surrendered', 'archived']
+
+    if (!allowedStatus.includes(value)) {
+        throw new Error(`Invalid status`)
+    }
+    return true
+}
+
 
 const registrationValidation = [
     body('email', messages.email).isEmail(),
@@ -17,9 +26,13 @@ const registrationValidation = [
     body('password', messages.password).isLength(({ min: 8 })),
 ]
 
+const updateValidation = [
+    body('status', messages.universal + 'status').custom(isValid),
+]
+
 const apartmentValidation = [
     body('name', messages.name).isLength(({ min: 6, max: 30 })),
-    body('description', messages.description).isLength(({ min: 30, max: 150  })),
+    body('description', messages.description).isLength(({ min: 20, max: 150  })),
     body('address', messages.universal + 'address').notEmpty(),
     body('rooms', messages.universal + 'rooms').isNumeric(),
     body('squareArea', messages.universal + 'squareArea').isNumeric(),
@@ -31,4 +44,5 @@ const apartmentValidation = [
 module.exports = {
     registrationValidation,
     apartmentValidation,
+    updateValidation,
 }

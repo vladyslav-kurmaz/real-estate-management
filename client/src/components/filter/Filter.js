@@ -13,6 +13,7 @@ const Filter = () => {
         <div className="filter">
             <h2 className='filter__title'>Фільтр</h2>
             <ul className="filter__list">
+                <li className="filter__item" onClick={(e) => onActive(e)}>Всі оголошення</li>
                 <li className="filter__item" onClick={(e) => onActive(e)}>Продаються</li>
                 <li className="filter__item" onClick={(e) =>onActive(e)}>Здаються</li>
                 <li className="filter__item" onClick={(e) =>onActive(e)}>Продані</li>

@@ -106,8 +106,8 @@ const getAll = async (req, res) => {
 const update = async (req, res) => {
     try {
         const { id } = req.params
-        const updateDoc = req.body
-        await apartmentModel.updateOne({ _id: id }, {updateDoc})
+        const {status} = req.body
+        await apartmentModel.updateOne({ _id: id }, {status})
 
         res.sendStatus(200)
     } catch (e) {

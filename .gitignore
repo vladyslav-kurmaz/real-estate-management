@@ -1,5 +1,10 @@
 .idea/
+client/.env
+client/.idea/
+client/node_modules/
+client/package-lock.json
 server/.env
-server/.idea
-server/node_modules
+server/.idea/
+server/node_modules/
 server/package-lock.json
+server/app.yaml
