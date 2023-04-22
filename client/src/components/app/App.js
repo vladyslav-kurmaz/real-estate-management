@@ -1,4 +1,4 @@
-import Header from '../header/header';
+// import Header from '../header/header';
 import MainPage from '../../pages/MainPage';
 
 import './App.css';
@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header/>
+      {/* <Header/> */}
       <main>
         <MainPage/>
 
