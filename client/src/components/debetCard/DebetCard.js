@@ -14,30 +14,6 @@ function DebetCart() {
             className="card__input"
             type="text"
           />
-
-          <div className="card__date-container">
-            <div className="card__date-block">
-              <p className="card__descr">Введіть строк дії карти</p>
-              <input
-                placeholder="**"
-                className="card__input card__date"
-                type="text"
-              />
-              <input
-                placeholder="**"
-                className="card__input card__date"
-                type="text"
-              />
-            </div>
-            <div className="card__code">
-              <p className="card__descr">Введіть CVС код</p>
-              <input
-                placeholder="***"
-                className="card__input card__cvv"
-                type="password"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>

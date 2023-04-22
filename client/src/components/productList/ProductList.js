@@ -4,23 +4,16 @@ import mainImage from '../../image/mainPage/mainPage.jpg';
 
 import './ProductList.css';
 import {useEffect, useState} from "react";
-<<<<<<< HEAD
-import {getApartments} from "../../http";
-=======
-import {fetchApartments} from "../services/http";
->>>>>>> 53bc3b2ed19f00988acf67ffa0b5d7013f899f1b
+
+import { getApartments } from "../services/http";
 
 const ProductList = () => {
     const [data, setData] = useState({})
 
     useEffect(() => {
-<<<<<<< HEAD
+
         getApartments().then(setData)
-=======
-        fetchApartments().then(setData);
-        console.log(data);
->>>>>>> 53bc3b2ed19f00988acf67ffa0b5d7013f899f1b
-    },[])
+   },[])
 
     
 
