@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const router = require('./router')
 const pino = require('pino')
+const reminder = require("./utils/cron");
 
 const logger = pino({
     transport: {
@@ -20,3 +21,5 @@ app.use(express.json())
 app.use(router)
 
 app.listen(process.env.PORT, () => logger.info('Server started'))
+
+reminder.start()
