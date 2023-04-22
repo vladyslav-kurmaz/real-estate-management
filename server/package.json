@@ -21,8 +21,7 @@
     "mongoose": "^7.0.4",
     "nodemailer": "^6.9.1",
     "pino": "^8.11.0",
-    "pino-pretty": "^10.0.0",
-    "crypto": "^x.x.x"
+    "pino-pretty": "^10.0.0"
   },
   "devDependencies": {
     "concurrently": "^8.0.1",
