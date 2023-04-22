@@ -1,0 +1,14 @@
+runtime: nodejs18
+
+env_variables:
+  CONNECT_URL_DB: mongodb+srv://apartment:u855Z8W7ukQG0oax@apartmentcluster.1gdlw82.mongodb.net/test
+  PRETTY_LOGGING: pino-pretty
+  SALT: JJGGlalo
+  PORT: 5000
+  JWT_SECRET_CODE: SECRETCODEdaf222
+  LOGIN_EMAIL: ivan.sjjdjdjdjdjjdjdd@outlook.com
+  PASSWORD_EMAIL: PjHLaM6Z+AVv$:H
+
+handlers:
+  - url: /.*
+    script: auto
