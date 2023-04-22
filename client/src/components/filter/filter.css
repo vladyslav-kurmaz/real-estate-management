@@ -23,6 +23,11 @@
     cursor: pointer;
 }
 
+.filter__item:hover {
+    transform: scale(1.1);
+    transition: transform .1s;
+}
+
 .filter__item-active {
     border-bottom: 1px solid #000;
 }

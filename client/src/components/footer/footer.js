@@ -1,4 +1,5 @@
 import "./footer.css";
+import logo from'../../image/hydra.webp'
 
 function Footer() {
   return (
@@ -7,7 +8,7 @@ function Footer() {
         <div className="footer__inner">
           <a href="#" className="footer__logo-link">
             <img
-              src="./images/logo.svg"
+              src={logo}
               alt="logo"
               className="footer__logo-img"
             />

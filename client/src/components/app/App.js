@@ -8,6 +8,7 @@ import LoginOrSing from "../../pages/LoginPage";
 import ProductsPage from "../../pages/ProductPage";
 import OneProductPage from "../../pages/OneProductPage";
 import Owerlay from "../../pages/Owerlay";
+import CabinetPage from "../../pages/CabinetPage";
 import "./App.css";
 
 function App() {
