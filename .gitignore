@@ -7,3 +7,4 @@ server/.env
 server/.idea/
 server/node_modules/
 server/package-lock.json
+server/app.yaml
