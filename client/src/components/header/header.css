@@ -9,10 +9,21 @@
 
 }
 
+.header a {
+    color: #000;
+    text-decoration: none;
+}
+
 
 .header__nav {
     margin: 0 auto;
     width: 700px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__button {
+    width: 150px;
     display: flex;
     justify-content: space-between;
 }
