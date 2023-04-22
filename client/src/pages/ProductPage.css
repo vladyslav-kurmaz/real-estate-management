@@ -1,0 +1,13 @@
+.product-page {
+    padding: 0 10px;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+}
+
+.product-page__content {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
