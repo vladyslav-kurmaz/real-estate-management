@@ -4,21 +4,23 @@ import mainImage from '../../image/mainPage/mainPage.jpg';
 
 import './ProductList.css';
 import {useEffect, useState} from "react";
-import {fetchApartments} from "../../http";
+import {fetchApartments} from "../services/http";
 
 const ProductList = () => {
     const [data, setData] = useState({})
 
     useEffect(() => {
-        fetchApartments().then(setData)
+        fetchApartments().then(setData);
+        console.log(data);
     },[])
 
+    
 
     return (
         <div className="product__container">
             <ul className="product__list">
                 <li className="product__item">
-                    <Link to='/productpage/:productId' className="">
+                    <Link to={`/productpage/:productId`} className="">
                         <img className='product__item-main-image' src={mainImage} alt="hause" />
                         <div>
                             <div className='product__item-container-price'>
@@ -192,12 +194,7 @@ const ProductList = () => {
                 </li>
             </ul>
 
-            <div className='product__pagination'>
-                <ul className='product__pagination-list'>
-                    <li className='product__pagination-item product__pagination-item-active '>1</li>
-                    <li className='product__pagination-item'>2</li>
-                </ul>
-            </div>
+            
         </div>
     )
 }
