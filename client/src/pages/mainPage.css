@@ -18,6 +18,9 @@
     opacity: .5;
 }
 
+.product-page{
+  padding: 0 10px;
+}
 .mainPage__nav {
     margin: 0 auto;
     width: 40%;

@@ -24,6 +24,7 @@
 .card__input {
   width: 100%;
   padding: 15px;
+  box-sizing: border-box;
   font-size: 18px;
   line-height: 20px;
   border: none;
@@ -34,22 +35,28 @@
 
 .card__date-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
 
 .card__date {
-  max-width: 40px;
+  max-width: 80px;
   margin: 0 3px;
 }
 
 .card__cvv {
-  max-width: 40px;
+  max-width: 80px;
 }
 
 .card__code {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+
+@media(max-width:420px){
+  .card__date-container {
+  flex-direction: column;
+}
 }
