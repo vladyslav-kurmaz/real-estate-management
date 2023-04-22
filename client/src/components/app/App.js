@@ -1,6 +1,6 @@
 import Header from '../header/header';
 import MainPage from '../../pages/MainPage';
-
+import Footer from '../footer/footer';
 import './App.css';
 
 
@@ -11,7 +11,7 @@ function App() {
       <Header/>
       <main>
         <MainPage/>
-
+        <Footer/>
       </main>
     </div>
   );

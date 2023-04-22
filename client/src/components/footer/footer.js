@@ -22,6 +22,9 @@ function Footer() {
             <li className="footer__item">
               <h4 className="footer__name">Name Lastname</h4>
             </li>
+            <li className="footer__item">
+              <h4 className="footer__name">Name Lastname</h4>
+            </li>
           </ul>
         </div>
       </div>
