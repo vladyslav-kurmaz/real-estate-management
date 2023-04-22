@@ -10,7 +10,7 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div >
         {/* <Header/> */}
         <Routes>
           <Route path="/" element={<MainPage />} />

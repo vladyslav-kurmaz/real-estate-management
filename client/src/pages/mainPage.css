@@ -42,6 +42,7 @@
     text-decoration: none;
     border-radius: 10px;
     line-height: 70px;
+    text-align: center;
 }
 
 .mainPage__nav__button:nth-child(2) {
