@@ -1,6 +1,5 @@
 const apartmentModel = require('../models/apartment-model')
 const userModel = require('../models/user-model')
-const jwt = require('jsonwebtoken')
 const pino = require('pino')
 
 const logger = pino({

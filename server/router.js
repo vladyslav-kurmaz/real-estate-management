@@ -1,7 +1,7 @@
 const Router = require('express')
 const userController = require('./controllers/user-controller')
 const apartmentController = require('./controllers/apartment-controller')
-const {registrationValidation, apartmentValidation} = require('./middleware/validations')
+const {registrationValidation, apartmentValidation, updateValidation} = require('./middleware/validations')
 const handleValidationErrors = require('./middleware/handle-validation-errors')
 const checkAuth = require('./middleware/check-auth')
 
@@ -12,7 +12,7 @@ router.post('/login', userController.login)
 
 router.post('/apartment', checkAuth, apartmentValidation, handleValidationErrors, apartmentController.create)
 router.get('/apartment/:id', apartmentController.getById)
-router.patch('/apartment/:id', checkAuth, apartmentController.update)
+router.patch('/apartment/:id', checkAuth, updateValidation, handleValidationErrors, apartmentController.update)
 router.get('/apartment/rent/:id', checkAuth, apartmentController.toRent)
 
 router.get('/apartments/status/:status', apartmentController.getByStatus)
