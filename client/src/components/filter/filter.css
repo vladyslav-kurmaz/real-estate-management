@@ -1,7 +1,7 @@
 .filter {
-    max-width: 250px;
+    max-width: 150px;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,6 +24,5 @@
 }
 
 .filter__item-active {
-    
     border-bottom: 1px solid #000;
 }

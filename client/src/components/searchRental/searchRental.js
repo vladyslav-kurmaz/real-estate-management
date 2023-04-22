@@ -2,7 +2,7 @@ import './seachRental.css';
 
 const SearchRental = () => {
     return (
-        <>
+        <div className='find'>
             <input 
                 // ref={searchInput}
                 type="text" 
@@ -13,7 +13,7 @@ const SearchRental = () => {
                 // onClick={handleClick}
                 // onBlur={() => setData([])}
                 />
-        </>
+        </div>
     )
 };
 
