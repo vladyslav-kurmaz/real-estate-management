@@ -14,16 +14,16 @@ function Footer() {
           </a>
           <ul className="footer__developers-list">
             <li className="footer__item">
-              <h4 className="footer__name">Name Lastname</h4>
+              <h4 className="footer__name">Vladyslav Kurmaz</h4>
             </li>
             <li className="footer__item">
-              <h4 className="footer__name">Name Lastname</h4>
+              <h4 className="footer__name">Viacheslav Zalotnyi</h4>
             </li>
             <li className="footer__item">
-              <h4 className="footer__name">Name Lastname</h4>
+              <h4 className="footer__name">Yurii Ushynskyi</h4>
             </li>
             <li className="footer__item">
-              <h4 className="footer__name">Name Lastname</h4>
+              <h4 className="footer__name">Ivan Sheichuk</h4>
             </li>
           </ul>
         </div>
