@@ -9,30 +9,32 @@ import ProductsPage from "../../pages/ProductPage";
 import OneProductPage from "../../pages/OneProductPage";
 import Owerlay from "../../pages/Owerlay";
 import "./App.css";
+import AddHouse from "../../pages/AddHouse";
 
 function App() {
   const [form, setForm] = useState('');
   return (
-    <Router>
-      <div >
-        {/* <Header/> */}
-        <Routes>
-          <Route path="/" element={<MainPage form={setForm}/>}/>
+    <AddHouse/>
+    // <Router>
+    //   <div >
+    //     {/* <Header/> */}
+    //     <Routes>
+    //       <Route path="/" element={<MainPage form={setForm}/>}/>
 
-          <Route path="/" element={<Owerlay form={setForm}/>}>
-            <Route path="/login" element={<LoginOrSing form={form}/>}/>
+    //       <Route path="/" element={<Owerlay form={setForm}/>}>
+    //         <Route path="/login" element={<LoginOrSing form={form}/>}/>
 
-            <Route path="/singup" element={<LoginOrSing form={form}/>}/>
+    //         <Route path="/singup" element={<LoginOrSing form={form}/>}/>
 
-            <Route path="/productpage" element={<ProductsPage />} />
-            <Route
-              path="/productpage/:productId"
-              element={<OneProductPage />}
-            />
-          </Route>
-        </Routes>
-      </div>
-    </Router>
+    //         <Route path="/productpage" element={<ProductsPage />} />
+    //         <Route
+    //           path="/productpage/:productId"
+    //           element={<OneProductPage />}
+    //         />
+    //       </Route>
+    //     </Routes>
+    //   </div>
+    // </Router>
   );
 }
 

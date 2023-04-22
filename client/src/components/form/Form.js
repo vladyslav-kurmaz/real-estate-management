@@ -13,10 +13,13 @@ function Form({form}) {
 
     if (fullName.trim() === "") {
       alert("Введіть ваше ім'я");
+      return;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       alert("Введіть корректну пошту");
+      return;
     } else if (password.trim() === "" || password.trim() === "") {
       alert("Введіть пароль");
+      return;
     } else {
       setFullName("");
       setEmail("");
