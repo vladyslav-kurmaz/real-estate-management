@@ -1,21 +1,17 @@
 .find {
     position: relative;
-
-    
-
 }
 
 .find__input {
     margin: 0 auto;
     margin-top: 50px;
-    width: 1200px;
+    width: 100%;
     padding: 15px 10px;
     border: 2px solid #000;
     font-size: 20px;
     outline: none;
     border-radius: 10px;
-
-    
+    box-sizing: border-box;
 }
 
 .find__input::placeholder {

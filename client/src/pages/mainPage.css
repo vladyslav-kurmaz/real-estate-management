@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 10px;
 }
 
 .mainPage__overlay {
@@ -17,6 +18,9 @@
     opacity: .5;
 }
 
+.product-page{
+  padding: 0 10px;
+}
 .mainPage__nav {
     margin: 0 auto;
     width: 40%;
@@ -36,6 +40,8 @@
     margin-left: 10px;
     color: #000;
     text-decoration: none;
+    border-radius: 10px;
+    line-height: 70px;
 }
 
 .mainPage__nav__button:nth-child(2) {
@@ -56,4 +62,32 @@
     position: absolute;
     top: 0;
     z-index: 1;
+}
+
+
+
+
+@media(max-width:1350px){
+  .mainPage__nav__button {
+    display: block;
+    font-size: 30px;
+    width: 45%;
+    height: 70px;
+}
+}
+
+@media(max-width:900px){
+  .mainPage__nav__button {
+    font-size: 25px;
+}
+.mainPage__nav{
+  width: auto;
+}
+}
+
+
+@media(max-width:670px){
+  .mainPage__nav__button {
+    font-size: 22px;
+}
 }
