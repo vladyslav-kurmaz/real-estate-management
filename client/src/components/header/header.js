@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import './header.css';
 
-const Header = () => {
+const Header = ({form}) => {
+
+    const onActiveForm = (e) => {
+        form(() => e.target.getAttribute('data-open'))
+    }
+
     return (
         <header className="header">
             <nav className="header__nav">
@@ -11,8 +16,8 @@ const Header = () => {
                 </ul>
 
                 <div className="header__button">
-                    <Link to={'/login'} className="button">Вхід</Link>
-                    <Link to={'/singup'} className="button">Реєстрація</Link>
+                    <Link to={'/login'} onClick={onActiveForm} data-open='Enter' className="button">Вхід</Link>
+                    <Link to={'/singup'} onClick={onActiveForm} data-open='SingUp' className="button">Реєстрація</Link>
                 </div>
             </nav>
         </header>

@@ -1,11 +1,11 @@
 import Form from "../components/form/Form";
 
 
-const LoginOrSing = (props) => {
+const LoginOrSing = ({form}) => {
 
     return (
         <>
-            <Form/>
+            <Form form={form}/>
         </>
     )
 }
