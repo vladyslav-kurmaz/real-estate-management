@@ -3,10 +3,10 @@ import axios from "./axios";
 export const registration = async (data) => {
     // для реєстрації
     /*
-    email
-    fullName
-    bankDetails
-    password
+    email string
+    fullName string
+    bankDetails string
+    password string
     */
     try {
         await axios.post('/registration', data);
