@@ -1,8 +1,17 @@
 import mainImage from '../../image/mainPage/mainPage.jpg';
 
 import './ProductList.css';
+import {useEffect, useState} from "react";
+import {fetchApartments} from "../../http";
 
 const ProductList = () => {
+    const [data, setData] = useState({})
+
+    useEffect(() => {
+        fetchApartments().then(setData)
+    },[])
+
+
     return (
         <div className="product__container">
             <ul className="product__list">
