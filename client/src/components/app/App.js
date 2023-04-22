@@ -1,7 +1,5 @@
-// import Header from '../header/header';
 
-import {
-  BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import MainPage from '../../pages/MainPage';
 import LoginOrSing from "../../pages/Login";
@@ -21,8 +19,7 @@ function App() {
           <Route path="/exit" element={<LoginOrSing/>}/>
         </Routes>
       </div>
-    </Router>
-  );
+    </Router>);
 }
 
 export default App;
