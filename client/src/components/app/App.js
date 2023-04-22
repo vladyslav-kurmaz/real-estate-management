@@ -10,7 +10,7 @@ function App() {
     <div >
       <Header />
       <main>
-        {/* <MainPage /> */}
+        <MainPage />
         <Form />
       </main>
     </div>
