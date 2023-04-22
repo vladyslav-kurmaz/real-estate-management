@@ -1,17 +1,17 @@
 import Header from '../header/header';
 import MainPage from '../../pages/MainPage';
-import Footer from '../footer/footer';
+import Form from '../form/Form';
 import './App.css';
 
 
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
+    <div >
+      <Header />
       <main>
-        <MainPage/>
-        <Footer/>
+        <MainPage />
+        <Form />
       </main>
     </div>
   );
