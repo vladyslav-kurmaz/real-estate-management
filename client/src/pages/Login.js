@@ -1,6 +1,7 @@
 
 
 const LoginOrSing = (props) => {
+
     return (
         <>
         
@@ -8,4 +9,4 @@ const LoginOrSing = (props) => {
     )
 }
 
-export default Login;
+export default LoginOrSing;
