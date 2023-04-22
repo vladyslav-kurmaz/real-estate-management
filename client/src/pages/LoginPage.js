@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import Form from "../components/form/Form";
-import {fetchApartments} from "../http";
+import {fetchApartments} from "../components/services/http";
 
 
 const LoginOrSing = ({form}) => {

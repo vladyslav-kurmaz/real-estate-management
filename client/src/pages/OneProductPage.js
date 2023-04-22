@@ -1,6 +1,10 @@
+import { useParams } from "react-router-dom";
+
 import "./OneProductPage.css";
 
 const OneProductPage = () => {
+  
+
   return (
     <>
       <div className="cart">
