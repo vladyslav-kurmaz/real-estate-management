@@ -6,6 +6,14 @@ const apartmentSchema = new mongoose.Schema({
         ref: 'users',
         required: true,
     },
+    name: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
     address: {
         type: String,
         required: true,
