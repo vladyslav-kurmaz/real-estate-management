@@ -1,0 +1,33 @@
+.find {
+    position: relative;
+
+    
+
+}
+
+.find__input {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 1200px;
+    padding: 15px 10px;
+    border: 2px solid #000;
+    font-size: 20px;
+    outline: none;
+    border-radius: 10px;
+
+    
+}
+
+.find__input::placeholder {
+    font-size: 20px;
+}
+
+.find__input:focus {
+    border: 2px solid #00fff7;
+    box-shadow: 0px 0px 10px 5px #00fff7;
+}
+
+.find__error {
+    margin-top: 13px;
+    position: absolute;
+}
