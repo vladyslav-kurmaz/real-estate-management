@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
 
 import { useState } from "react";
 
@@ -26,7 +26,6 @@ function App() {
             <Route path="/singup" element={<LoginOrSing form={form}/>}/>
 
             <Route path="/productpage" element={<ProductsPage />} />
-
             <Route
               path="/productpage/:productId"
               element={<OneProductPage />}
