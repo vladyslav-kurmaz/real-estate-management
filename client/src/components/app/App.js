@@ -13,7 +13,7 @@ function App() {
   const [form, setForm] = useState('');
   return (
     <Router>
-      <div className="App">
+      <div >
         {/* <Header/> */}
         <Routes>
           <Route path="/" element={<MainPage form={setForm}/>}/>

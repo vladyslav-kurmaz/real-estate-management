@@ -1,4 +1,6 @@
 const userModel = require('../models/user-model')
+const operationModel = require('../models/operation-model')
+const apartmentModel = require('../models/apartment-model')
 const crypto = require('node:crypto')
 const jwt = require('jsonwebtoken')
 const pino = require('pino')
@@ -73,7 +75,82 @@ const login = async (req, res) => {
     }
 }
 
+const getOwnApartments = async (req, res) => {
+    try {
+        const token = req.headers.authorization.replace(/Bearer\s?/, '')
+        const decoded = jwt.decode(token, { verify: false })
+
+        const apartments = await apartmentModel.find({ owner: decoded._id })
+
+        res.json({apartments})
+    } catch (e) {
+        logger.error(e)
+        res.sendStatus(500)
+    }
+}
+
+const getRentApartments = async (req, res) => {
+    try {
+        const token = req.headers.authorization.replace(/Bearer\s?/, '')
+        const decoded = jwt.decode(token, { verify: false })
+
+        const apartments = await apartmentModel.find({ inhabitant: decoded._id })
+
+        res.json({apartments})
+    } catch (e) {
+        logger.error(e)
+        res.sendStatus(500)
+    }
+}
+
+const createOperation = async (req, res) => {
+    try {
+        const {id} = req.params
+
+        const token = req.headers.authorization.replace(/Bearer\s?/, '')
+        const decoded = jwt.decode(token, { verify: false })
+
+        const newOperation = new operationModel({
+            apartment: id,
+            inhabitant: decoded._id,
+            date: Date.now()
+        })
+
+        await newOperation.save()
+        res.sendStatus(200)
+    } catch (e) {
+        logger.error(e)
+        res.sendStatus(500)
+    }
+}
+
+const getOperation = async (req, res) => {
+    try {
+        const {id} = req.params
+
+        const token = req.headers.authorization.replace(/Bearer\s?/, '')
+        const decoded = jwt.decode(token, { verify: false })
+
+        const apartment = await apartmentModel.findOne({ _id: id })
+
+        if (apartment.owner !== decoded._id) {
+            return res.status(400)
+        }
+
+        const operations = await operationModel.find({ apartment: id }).sort({ _id: -1 });
+
+        res.json({operations})
+    } catch (e) {
+        logger.error(e)
+        res.sendStatus(500)
+    }
+}
+
 module.exports = {
     registration,
     login,
+    createOperation,
+    getOperation,
+    getOwnApartments,
+    getRentApartments,
 }
