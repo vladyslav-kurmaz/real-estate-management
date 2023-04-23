@@ -7,13 +7,14 @@ const Header = ({form}) => {
     const navigate  = useNavigate();
     const [token, setToken] = useState('');
 
-    const onActiveForm = (e) => {
-        form(() => e.target.getAttribute('data-open'))
-    }
+
     useEffect(() => {
         setToken(localStorage.getItem("token"))
     }, [])
 
+    const onActiveForm = (e) => {
+        form(() => e.target.getAttribute('data-open'))
+    }
     const logoutClick = () => {
         logout()
         navigate('/');
