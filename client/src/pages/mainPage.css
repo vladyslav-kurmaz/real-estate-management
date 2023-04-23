@@ -1,5 +1,5 @@
 .mainPage {
-    height: 100vh;
+    height: calc(100vh - 60px);
     margin: 0 auto;
     position: relative;
     display: flex;
@@ -8,9 +8,24 @@
     padding: 0 10px;
 }
 
+.dream {
+    font-size: 200px;
+    color: white;
+}
+.better {
+    font-style: italic;
+    position: relative;
+    font-size: 35px;
+    color: white;
+}
+
+.text {
+    z-index: 100;
+}
+
 .mainPage__overlay {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     background-color: #000;
     position: absolute;
     top: 0;
@@ -23,7 +38,7 @@
 }
 .mainPage__nav {
     margin: 0 auto;
-    width: 40%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -57,7 +72,7 @@
 
 .mainPage__img {
     display: block;
-    height: 100vh;
+    height: calc(100vh - 60px);
     width: 100%;
     object-fit: cover;
     position: absolute;
