@@ -11,7 +11,7 @@ function Footer() {
           </a>
           <ul className="footer__developers-list">
             <li className="footer__item">
-              <a href="#" className="footer__link">
+              <a href="https://www.linkedin.com/in/vladyslav-kurmaz-23593925b/" className="footer__link">
                 <h4 className="footer__name">Vladyslav Kurmaz</h4>
                 <img src={linkedin} alt="linkedin" className="footer__img" />
               </a>

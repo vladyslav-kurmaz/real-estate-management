@@ -85,7 +85,7 @@ const ProductList = ({filter, dataFilter, tempData, setPagination, numPagi}) => 
       } = flat;
       const photo = photos.length === 0 ? notImage : photos[0];
       return (
-        <li className="product__item " key={_id}>
+        <li className="product__item reveal" key={_id}>
           <Link to={`/productpage/${_id}`}>
             <img className="product__item-main-image" src={photo} alt={name} />
             <div>

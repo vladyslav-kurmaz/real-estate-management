@@ -30,6 +30,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MainPage form={setForm}/>}/>
 
+                    <Route path="/addhouse" element={<AddHouse form={setForm}/>}/>
+                    
                     <Route path="/" element={<Owerlay form={setForm}/>}>
                         { !token &&
                             <>
@@ -42,6 +44,8 @@ function App() {
                             path="/productpage/:productId"
                             element={<OneProductPage />}
                         />
+
+                        
 
                         <Route path="*" element={<Navigate to={"/"} />} />
                     </Route>

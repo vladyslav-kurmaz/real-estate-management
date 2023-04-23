@@ -34,7 +34,7 @@ const Header = ({ form }) => {
           </Link>
           {token ? (
             <>
-              <Link to={"/product-create"} className="button">
+              <Link to={"/addhouse"} className="button">
                 Створити
               </Link>
 
