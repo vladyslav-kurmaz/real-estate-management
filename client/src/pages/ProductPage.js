@@ -3,20 +3,21 @@ import { useState, useEffect } from "react";
 import SearchRental from "../components/searchRental/searchRental";
 import Filter from "../components/filter/Filter";
 import ProductList from "../components/productList/ProductList";
-import { getApartmentsByStatus } from "../components/services/http";
+import { getApartmentsByStatus, getApartmentsByName } from "../components/services/http";
 
 import './ProductPage.css';
 
 const ProductsPage = () => {
 
     const [filter, setFilter] = useState('');
-    const [dataFilter, setDataFilter] = useState('')
+    const [dataFilter, setDataFilter] = useState('');
+    const [temp, setTemp] = useState('');
+    const [tempData, setTempData] = useState('');
 
     const onActive = (e) => {
         e.target.parentElement.childNodes.forEach(item => item.classList.remove('product__pagination-item-active'));
         e.target.classList.add('product__pagination-item-active');
     } 
-
 
     useEffect(() => {
         if (filter !== '') {
@@ -27,13 +28,22 @@ const ProductsPage = () => {
         }
     }, [filter])
 
+    useEffect(() => {
+        if (filter !== '') {
+            getApartmentsByName(temp)
+                .then(res => setTempData(res))
+        } else {
+            setTempData('')
+        }
+    }, [temp])
+
     return (
         <>
             <main className="product-page">
-                <SearchRental/>
+                <SearchRental fn={setTemp}/>
                 <div className="product-page__content">
                     <Filter fn={setFilter}/>
-                    <ProductList filter={filter} dataFilter={dataFilter}/>
+                    <ProductList filter={filter} dataFilter={dataFilter} tempData={tempData}/>
                 </div>
                 
                 <div className='product__pagination'>
