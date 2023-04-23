@@ -1,7 +1,6 @@
 const userModel = require('../models/user-model')
 const operationModel = require('../models/operation-model')
 const apartmentModel = require('../models/apartment-model')
-const crypto = require('node:crypto')
 const jwt = require('jsonwebtoken')
 const pino = require('pino')
 const bcrypt = require("bcrypt");
