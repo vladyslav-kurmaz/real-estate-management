@@ -31,3 +31,29 @@
 .filter__item-active {
     border-bottom: 1px solid #000;
 }
+
+
+
+
+@media(max-width:1300px){
+  .filter{
+    margin: 0 20;
+  }
+}
+
+@media(max-width:950px){
+
+  .filter{
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  .filter__list{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+}

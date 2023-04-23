@@ -31,10 +31,10 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .header__button {
-    width: 150px;
     display: flex;
     justify-content: space-between;
 }
