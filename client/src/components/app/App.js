@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 import MainPage from '../../pages/MainPage';
 import LoginOrSing from "../../pages/LoginPage";
@@ -14,6 +14,13 @@ import AddHouse from "../../pages/AddHouse";
 
 function App() {
     const [form, setForm] = useState('');
+    const [token, setToken] = useState('');
+
+
+    useEffect(() => {
+        setToken(localStorage.getItem("token"))
+    }, [])
+
     return (
         <Router>
             <div >
@@ -22,9 +29,12 @@ function App() {
                     <Route path="/" element={<MainPage form={setForm}/>}/>
 
                     <Route path="/" element={<Owerlay form={setForm}/>}>
+                        { !token ?
+                            <>
                         <Route path="/login" element={<LoginOrSing form={form}/>}/>
-
                         <Route path="/singup" element={<LoginOrSing form={form}/>}/>
+                            </>
+                            : <></>}
 
                         <Route path="/productpage" element={<ProductsPage />} />
                         <Route
