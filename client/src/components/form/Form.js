@@ -1,8 +1,10 @@
 import "./form.css";
 import React, { useState } from "react";
 import {login, registration} from "../services/http";
+import {useNavigate} from "react-router-dom";
 
 function Form({form}) {
+  const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,6 +27,7 @@ function Form({form}) {
 
     setEmail('')
     setPassword('')
+    navigate('/');
   };
 
   const registerClick = async (e) => {
@@ -47,6 +50,7 @@ function Form({form}) {
     setPassword('')
     setBankDetails('')
     setFullName('')
+    navigate('/');
   };
 
   const typeForm = (data) => {
