@@ -6,37 +6,34 @@ import "./ProductList.css";
 import notImage from "../../image/notImage.png";
 import { useEffect, useState } from "react";
 
-
 import { getApartments } from "../services/http";
 
 const ProductList = ({filter, dataFilter, tempData}) => {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);
-    // const [filterData, setFilterData] = useState(dataFilter());
 
-    useEffect(() => {
-        setLoading(true);
-        getApartments()
-            .then(setData)
-            .then(() => setLoading(false));
-    },[])
+  useEffect(() => {
+    setLoading(true);
+    getApartments()
+      .then(setData)
+      .then(() => setLoading(false));
+  }, []);
 
-    const statusTranslate = (status) => {
-        switch(status) {
-            case 'for-sale':
-                return 'Продається';
-            case 'sold':
-                return 'Продано';
-            case 'surrendered':
-                return 'Здає\'ться';
-            case 'appear':
-                return 'Оренда';
-            case 'archived':
-                return 'Архівовано';
-        }
+
+  const statusTranslate = (status) => {
+    switch (status) {
+      case "for-sale":
+        return "Продається";
+      case "sold":
+        return "Продано";
+      case "surrendered":
+        return "Здає'ться";
+      case "appear":
+        return "Оренда";
+      case "archived":
+        return "Архівовано";
     }
-  
-
+  };
 
   const renderItem = (data) => {
     console.log(dataFilter);
@@ -81,7 +78,6 @@ const ProductList = ({filter, dataFilter, tempData}) => {
   };
 
   const spiner = loading ? <Spinner/> : null;
-//   const allData = renderItem(dataFilter === '' ? data : dataFilter);
   const content = !loading && data ? renderItem(dataFilter === '' ? data : dataFilter) : null
 
   return (
@@ -93,6 +89,5 @@ const ProductList = ({filter, dataFilter, tempData}) => {
     </div>
   );
 };
-
 
 export default ProductList;

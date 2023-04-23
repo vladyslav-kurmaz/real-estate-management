@@ -23,37 +23,35 @@ const Header = ({form}) => {
     return (
       <header className="header">
         <nav className="header__nav">
-              <Link to={"/"}>Головна</Link>
-            <div className="header__button" style={{width: token ? '250px' : '150px'}}>
-              <Link
-                  to={"/productpage"}
-                  className="button"
-              >
-                  Пропозиції
-              </Link>
-              { token ?
-                  <>
-                      <Link
-                          to={"/product-create"}
-                          className="button"
-                      >
-                          Створити
-                      </Link>
+          <Link to={"/"}>Головна</Link>
+          <div
+            className="header__button"
+          >
+            <Link to={"/productpage"} className="button">
+              Пропозиції
+            </Link>
+            {token ? (
+              <>
+                <Link to={"/product-create"} className="button">
+                  Створити
+                </Link>
 
-                      <button onClick={logoutClick} className="logout">Вийти</button>
-                  </>
-                  :
-                  <>
-                      <Link
-                          to={"/login"}
-                          onClick={onActiveForm}
-                          data-open="Enter"
-                          className="buttonEnter"
-                      >
-                          Вхід
-                      </Link>
-                  </>
-              }
+                <button onClick={logoutClick} className="logout">
+                  Вийти
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to={"/login"}
+                  onClick={onActiveForm}
+                  data-open="Enter"
+                  className="buttonEnter"
+                >
+                  Вхід
+                </Link>
+              </>
+            )}
           </div>
         </nav>
       </header>
