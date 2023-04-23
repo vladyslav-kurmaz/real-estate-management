@@ -1,9 +1,9 @@
 const userModel = require('../models/user-model')
 const operationModel = require('../models/operation-model')
 const apartmentModel = require('../models/apartment-model')
-const crypto = require('node:crypto')
 const jwt = require('jsonwebtoken')
 const pino = require('pino')
+const bcrypt = require("bcrypt");
 
 const logger = pino({
     transport: {
@@ -23,9 +23,8 @@ const registration = async (req, res) => {
                 .send(`User with '${email}' email already exists`)
         }
 
-        const cryptoPassword = crypto
-            .pbkdf2Sync(password, process.env.SALT, 2000, 64, 'sha512')
-            .toString('hex')
+        const salt = parseInt(process.env.SALT)
+        const cryptoPassword = bcrypt.hashSync(password, salt)
 
         const newUser = new userModel({
             email,
@@ -54,11 +53,12 @@ const login = async (req, res) => {
                 .send(`User with '${email}' email doesn't exist`)
         }
 
-        const cryptoPassword = crypto
-            .pbkdf2Sync(password, process.env.SALT, 2000, 64, 'sha512')
-            .toString('hex')
+        const isValidPass = await bcrypt.compare(
+            password,
+            user.password
+        )
 
-        if (cryptoPassword !== user.password) {
+        if (!isValidPass) {
             return res.status(401).send('Invalid password')
         }
 
