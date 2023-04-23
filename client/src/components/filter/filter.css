@@ -1,3 +1,15 @@
+.reveal-filter{
+  position: relative;
+  transform: translateY(-150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+.reveal-filter.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
 .filter {
     max-width: 150px;
     width: 100%;

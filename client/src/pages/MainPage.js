@@ -1,6 +1,6 @@
 import mainImage from '../image/mainPage/mainPage.jpg';
 import './mainPage.css'
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/header/header";
 const MainPage = ({form}) => {
 
@@ -10,6 +10,7 @@ const MainPage = ({form}) => {
   };
 
    
+
 
   /**Animation */
   useEffect(() => {
@@ -37,7 +38,9 @@ const MainPage = ({form}) => {
     <>
       <Header form={form} />
       <main className="mainPage ">
-        <div className="mainPage__overlay"></div>
+        <div
+          className="mainPage__overlay"
+        ></div>
         <img
           src={mainImage}
           className="mainPage__img"
