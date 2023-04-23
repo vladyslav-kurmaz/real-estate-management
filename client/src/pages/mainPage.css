@@ -106,4 +106,13 @@
   .mainPage__nav__button {
     font-size: 22px;
 }
+.dream{
+  font-size: 40px;
+}
+.mainPage__nav{
+  flex-direction: column;
+      width: -webkit-fill-available;
+
+}
+
 }

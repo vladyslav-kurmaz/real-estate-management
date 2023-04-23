@@ -12,6 +12,8 @@ const ProductList = ({ filter, dataFilter }) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
 
+
+
   useEffect(() => {
     setLoading(true);
     getApartments()
@@ -33,6 +35,8 @@ const ProductList = ({ filter, dataFilter }) => {
         return "Архівовано";
     }
   };
+
+   
 
   const renderItem = (data) => {
     console.log(filter);
@@ -75,6 +79,7 @@ const ProductList = ({ filter, dataFilter }) => {
       );
     });
   };
+
 
   const spiner = loading ? <Spinner /> : null;
   const content =
