@@ -13,10 +13,15 @@ const ProductsPage = () => {
     const [dataFilter, setDataFilter] = useState('');
     const [temp, setTemp] = useState('');
     const [tempData, setTempData] = useState('');
+    const [pagination, setPagination] = useState(2);
+    const [numPagi, setNumPagi] = useState(1);
+    
 
     const onActive = (e) => {
         e.target.parentElement.childNodes.forEach(item => item.classList.remove('product__pagination-item-active'));
         e.target.classList.add('product__pagination-item-active');
+        setNumPagi(e.target.textContent);
+        
     } 
 
     useEffect(() => {
@@ -37,19 +42,39 @@ const ProductsPage = () => {
         }
     }, [temp])
 
+    const paginationItem = (item) => {
+        const result = [];
+
+        for (let i = 0; i <= item; i++) {
+            result.push(i + 1)
+        }
+
+        return result
+    }
+
     return (
         <>
             <main className="product-page">
                 <SearchRental fn={setTemp}/>
                 <div className="product-page__content">
                     <Filter fn={setFilter}/>
-                    <ProductList filter={filter} dataFilter={dataFilter} tempData={tempData}/>
+                    <ProductList 
+                        numPagi={numPagi}
+                        setPagination={setPagination} 
+                        filter={filter} 
+                        dataFilter={dataFilter} 
+                        tempData={tempData}/>
                 </div>
                 
                 <div className='product__pagination'>
                 <ul className='product__pagination-list'>
-                    <li className='product__pagination-item product__pagination-item-active' onClick={onActive}>1</li>
-                    <li className='product__pagination-item' onClick={onActive}>2</li>
+                    {/* <li className='product__pagination-item product__pagination-item-active' onClick={onActive}>1</li>
+                    <li className='product__pagination-item' onClick={onActive}>2</li> */}
+                    {paginationItem(pagination).map(item => {
+
+                        return item === 1 ? <li className='product__pagination-item product__pagination-item-active' key={item} onClick={onActive}>{item}</li> :
+                        <li className='product__pagination-item' key={item} onClick={onActive}>{item}</li>
+                    })}
                 </ul>
             </div>
             </main>

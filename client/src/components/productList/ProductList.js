@@ -6,18 +6,29 @@ import "./ProductList.css";
 import notImage from "../../image/notImage.png";
 import { useEffect, useState } from "react";
 
-import { getApartments } from "../services/http";
+import { getApartments, getApartmentsByStatus } from "../services/http";
 
-const ProductList = ({filter, dataFilter, tempData}) => {
+const ProductList = ({filter, dataFilter, tempData, setPagination, numPagi}) => {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    // console.log(pagination);
     setLoading(true);
+    // getApartmentsByStatus()
     getApartments()
-      .then(setData)
+      .then((data) => {
+        setData(data);
+        setPagination(data.totalPages)
+    })
       .then(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    
+    getApartments(`?page=${numPagi}`)
+            .then(res => setData(res))
+  }, [numPagi])
 
 
   const statusTranslate = (status) => {
@@ -36,7 +47,8 @@ const ProductList = ({filter, dataFilter, tempData}) => {
   };
 
   const renderItem = (data) => {
-    console.log(dataFilter);
+    
+    console.log(data);
     return data.apartments?.map((flat) => {
       const {
         _id,
