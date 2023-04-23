@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 
 import { getApartments } from "../services/http";
 
-const ProductList = ({ filter, dataFilter }) => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(false);
+const ProductList = ({filter, dataFilter, tempData}) => {
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(false);
 
 
 
@@ -20,6 +20,7 @@ const ProductList = ({ filter, dataFilter }) => {
       .then(setData)
       .then(() => setLoading(false));
   }, []);
+
 
   const statusTranslate = (status) => {
     switch (status) {
@@ -39,7 +40,7 @@ const ProductList = ({ filter, dataFilter }) => {
    
 
   const renderItem = (data) => {
-    console.log(filter);
+    console.log(dataFilter);
     return data.apartments?.map((flat) => {
       const {
         _id,
@@ -81,16 +82,16 @@ const ProductList = ({ filter, dataFilter }) => {
   };
 
 
-  const spiner = loading ? <Spinner /> : null;
-  const content =
-    !loading && data ? renderItem(dataFilter === "" ? data : dataFilter) : null;
+  const spiner = loading ? <Spinner/> : null;
+  const content = !loading && data ? renderItem(dataFilter === '' ? data : dataFilter) : null
+
 
   return (
     <div className="product__container">
-      <ul className="product__list">
-        {spiner}
-        {content}
-      </ul>
+         <ul className="product__list">
+            {spiner}
+            {content}              
+        </ul>
     </div>
   );
 };

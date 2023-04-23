@@ -44,7 +44,7 @@ const apartmentSchema = new mongoose.Schema({
     },
     paymentDate: {
         type: Date,
-    }
+    },
 })
 
 module.exports = mongoose.model('apartments', apartmentSchema)

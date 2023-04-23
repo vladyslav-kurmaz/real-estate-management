@@ -7,7 +7,8 @@ import "./OneProductPage.css";
 import notImage from '../image/notImage.png';
 
 const OneProductPage = () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false);
   const {productId} = useParams()
 
   const navigation = useNavigate();
@@ -18,8 +19,10 @@ const OneProductPage = () => {
   }, [])  
 
   const getIdOneApartment = () => {
+    setLoading(true);
     getOneApartment(productId)
       .then(res => setData(res))
+      .then(() => setLoading(false));
   }
 
   const statusTranslate = (status) => {
@@ -38,12 +41,14 @@ const OneProductPage = () => {
 }
 
   const renderItem = ({photos, name, description, address, rooms, squareArea, price, status}) => {
-    // const photo = photos?.length === 0 ? notImage : photos[0]
+    console.log(data);
+    // const photo = photos?.length ? notImage : photos[0]
+    // console.log(photos.length);
     return (
         <div className="cart__inner">
           <button onClick={() => goBack()} className="cart__button-back" >Повернутися до списку</button>
           <div className="cart__img-box">
-            <img src="./image" alt="cart" className="cart__img" />
+            <img src={photos === undefined || photos.length === 0 ? notImage : photos[0]} alt="cart" className="cart__img" />
           </div>
           <div className="cart__info">
             <h1 className="cart__name">{name}</h1>
@@ -90,11 +95,16 @@ const OneProductPage = () => {
     )
   }
 
+  const spiner = loading ? <Spinner/> : null;
+  const content = !loading && data ? renderItem(data) : null
+  
+
   return (
     <>
       <div className="cart">
         <div className="container">
-          {renderItem(data)}
+          {spiner}
+          {content}
         </div>
       </div>
     </>
