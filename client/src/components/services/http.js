@@ -1,7 +1,8 @@
 import axios from "./axios";
 
 export const registration = async (data) => {
-    // для реєстрації
+    // work
+
     try {
         await axios.post('/registration', data);
     } catch (e) {
@@ -10,10 +11,10 @@ export const registration = async (data) => {
 }
 
 export const login = async (data) => {
-    // для входу
+    // work
     try {
-        const {token} = await axios.post('/login', data);
-        localStorage.setItem("token",token)
+        const info = await axios.post('/login', data)
+        await localStorage.setItem("token", info.data.token);
     } catch (e) {
         return e
     }
@@ -38,17 +39,34 @@ export const getApartments = async () => {
     }
 }
 
-export const createApartment = async (id, data) => {
+export const createApartment = async (data) => {
+    //обов'язково бути авторизованим
     //створити квартиру
+
+    /*
+        name { min: 6, max: 30 } string
+     description { min: 20, max: 150  } string
+    address string,
+    rooms number,
+    squareArea number
+    price number
+    photos (not required but if exist) - [string, string]
+    status одне з цього for-sale appear sold surrendered
+    */
     try {
-        await axios.post('/apartment/' + id, data);
+        await axios.post('/apartment', data);
     } catch (e) {
         return e
     }
 }
 
 export const updateApartment = async (id, data) => {
+    //обов'язково бути авторизованим
     //обновити статус квартири
+/*
+    status одне з цього for-sale appear sold surrendered archived
+    */
+
     try {
         await axios.patch('/apartment/' + id, data);
     } catch (e) {
@@ -57,6 +75,7 @@ export const updateApartment = async (id, data) => {
 }
 
 export const getOneApartment = async (id) => {
+    // id  - квартири
     //отримати квартиру по айді
     try {
         const {data} =await axios.get('/apartment/' + id);
@@ -67,6 +86,8 @@ export const getOneApartment = async (id) => {
 }
 
 export const toRent = async (id) => {
+    //обов'язково бути авторизованим
+    // id  - квартири
     //для кнопки орендувати
     try {
         await axios.get('/apartment/rent/' + id)
@@ -96,6 +117,7 @@ export const getApartmentsByName = async (name) => {
 }
 
 export const сreateOperation = async (id) => {
+    //обов'язково бути авторизованим
     //повісити на кнопку оплатити за оренду
     // id - квартири
     try {
@@ -107,6 +129,7 @@ export const сreateOperation = async (id) => {
 }
 
 export const getOperations = async (id) => {
+    //обов'язково бути авторизованим
     //для отримання операції квартири
     // id - квартири
     try {
@@ -118,6 +141,7 @@ export const getOperations = async (id) => {
 }
 
 export const getOwnApartmens = async () => {
+    //обов'язково бути авторизованим
     //для отримання власних квартир
     // id - user
     try {
@@ -129,6 +153,7 @@ export const getOwnApartmens = async () => {
 }
 
 export const getRentApartmens = async () => {
+    //обов'язково бути авторизованим
     //для отримання квартир, що орендують
     // id - user
     try {

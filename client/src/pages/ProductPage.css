@@ -2,7 +2,6 @@
     padding: 0 10px;
     margin: 0 auto;
     max-width: 1300px;
-    width: 100%;
 }
 
 .product-page__content {
@@ -11,3 +10,11 @@
     justify-content: space-between;
 }
 
+
+
+@media(max-width:950px){
+  .product-page__content{
+    flex-direction: column;
+    margin-top: 10px;
+  }
+}

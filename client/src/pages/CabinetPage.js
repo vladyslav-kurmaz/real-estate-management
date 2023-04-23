@@ -42,7 +42,7 @@ const CabinetPage = () => {
                   </div>
                 </div>
               </div>
-              <button className="cabinet__logout">Вийти з аккаунту</button>
+
             </div>
             <h2 className="cabinet__title">Ваші оголошення</h2>
             <ul className="cabinet__products-list">

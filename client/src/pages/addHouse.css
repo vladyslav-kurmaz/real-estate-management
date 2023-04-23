@@ -1,0 +1,93 @@
+
+.add{
+  padding: 30px 0;
+}
+
+.add__title{
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.add__form{
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+.add__name{
+  font-size: 19px;
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+
+.add__input{
+  border: none;
+  background-color: transparent;
+  border: 1px solid #000000c9;
+  padding: 10px;
+  font-size: 20px;
+  line-height: 23px;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+-webkit-box-shadow: 6px 6px 25px 2px rgba(0,0,0,0.34);
+-moz-box-shadow: 6px 6px 25px 2px rgba(0,0,0,0.34);
+box-shadow: 6px 6px 25px 2px rgba(0,0,0,0.34);
+}
+
+.add__textarea{
+  resize: none;
+  height: 100px;
+   font-weight: 400 !important;
+}
+.add__textarea::placeholder{
+  font-weight: 400 !important;
+}
+
+.add__btn{
+  background-color: transparent;
+  border: none;
+  padding: 20px 10px;
+  width: 100%;
+  border: 1px solid #000000c9;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .5s;
+  margin-top: 30px;
+
+  -webkit-box-shadow: 6px 6px 25px 2px rgba(0,0,0,0.34);
+-moz-box-shadow: 6px 6px 25px 2px rgba(0,0,0,0.34);
+box-shadow: 6px 6px 25px 2px rgba(0,0,0,0.34);
+}
+
+.add__btn:hover{
+  background-color: #000000c9;
+  color: #fff;
+}
+
+
+
+@media(max-width: 600px){
+  .add__name{
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  .add__input{
+    font-size: 18px;
+    line-height: 20px;
+    padding: 8px;
+  }
+  .add__textarea{
+    height: 60px;
+  }
+  .add__btn{
+    margin-top: 20px;
+    padding: 10px;
+  }
+  .add__title{
+    margin-bottom: 30px;
+  }
+}

@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
 
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 import MainPage from '../../pages/MainPage';
 import LoginOrSing from "../../pages/LoginPage";
@@ -10,31 +10,45 @@ import OneProductPage from "../../pages/OneProductPage";
 import Owerlay from "../../pages/Owerlay";
 import CabinetPage from "../../pages/CabinetPage";
 import "./App.css";
+import AddHouse from "../../pages/AddHouse";
 
 function App() {
-  const [form, setForm] = useState('');
-  return (
-    <Router>
-      <div >
-        {/* <Header/> */}
-        <Routes>
-          <Route path="/" element={<MainPage form={setForm}/>}/>
+    const [form, setForm] = useState('');
+    const [token, setToken] = useState('');
 
-          <Route path="/" element={<Owerlay form={setForm}/>}>
-            <Route path="/login" element={<LoginOrSing form={form}/>}/>
 
-            <Route path="/singup" element={<LoginOrSing form={form}/>}/>
+    useEffect(() => {
+        setToken(localStorage.getItem("token"))
+    }, [])
 
-            <Route path="/productpage" element={<ProductsPage />} />
-            <Route
-              path="/productpage/:productId"
-              element={<OneProductPage />}
-            />
-          </Route>
-        </Routes>
-      </div>
-    </Router>
-  );
+    return (
+      
+        <Router>
+          
+            <div >
+                {/* <Header/> */}
+                <Routes>
+                    <Route path="/" element={<MainPage form={setForm}/>}/>
+
+                    <Route path="/" element={<Owerlay form={setForm}/>}>
+                        { !token &&
+                            <>
+                        <Route path="/login" element={<LoginOrSing form={form}/>}/>
+                        <Route path="/singup" element={<LoginOrSing form={form}/>}/>
+                            </>}
+
+                        <Route path="/productpage" element={<ProductsPage />} />
+                        <Route
+                            path="/productpage/:productId"
+                            element={<OneProductPage />}
+                        />
+
+                        <Route path="*" element={<Navigate to={"/"} />} />
+                    </Route>
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

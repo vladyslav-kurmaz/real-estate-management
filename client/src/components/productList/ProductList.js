@@ -7,7 +7,8 @@ import './ProductList.css';
 import notImage from '../../image/notImage.png'
 import {useEffect, useState} from "react";
 
-import {getApartments} from "../services/http";
+import { getApartments } from "../services/http";
+
 
 const ProductList = ({filter, dataFilter}) => {
     const [data, setData] = useState({});

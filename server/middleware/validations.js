@@ -32,7 +32,7 @@ const updateValidation = [
 
 const apartmentValidation = [
     body('name', messages.name).isLength(({ min: 6, max: 30 })),
-    body('description', messages.description).isLength(({ min: 30, max: 150  })),
+    body('description', messages.description).isLength(({ min: 20, max: 150  })),
     body('address', messages.universal + 'address').notEmpty(),
     body('rooms', messages.universal + 'rooms').isNumeric(),
     body('squareArea', messages.universal + 'squareArea').isNumeric(),

@@ -1,0 +1,146 @@
+.allproducts{
+  padding: 20px 0;
+}
+
+.allproducts__title{
+  font-size: 22px;
+  line-height: 25px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.allproducts__container{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.allproducts__name{
+  font-size: 20px;
+  text-align: center;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.allproducts__list{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.allproducts__item{
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.767);
+}
+
+.allproducts__products__img-box{
+  max-width: 100%;
+  margin: 0 auto;
+  height: 400px;
+  background-color: black;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+.allproducts__products-img{
+  max-width: 100%;
+  width: 100%;
+}
+
+.allproducts__item-name{
+  text-align: center;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+
+}
+
+.allproducts__item-descr{
+  text-align: center;
+}
+
+.allproducts__item-list{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.allproducts__name{
+  font-size: 23px;
+  line-height: 26px;
+}
+
+.allproducts__item-name{
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.allproducts__item-item-title,
+.allprosucts__item-num{
+  text-align: center;
+}
+.allprosucts__name-title{
+  margin-bottom: 7px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.allprosucts__item-adres-title,
+.allprosucts__item-descriptions-title{
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.allprosucts__item-adres{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.allprosucts__item-descriptions-item{
+  margin-bottom: 10px;
+  font-size: 16px;
+
+}
+
+.allprosucts__item-price{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 700;
+}
+
+
+
+
+
+
+@media(max-width:930px){
+  .allproducts__container{
+    flex-direction: column-reverse;
+  }
+  .allproducts__name{
+    font-size: 26px;
+    line-height: 29px;
+  }
+
+  .allproducts__title{
+    margin-bottom: 35px;
+     font-size: 28px;
+  }
+
+  .allproducts__item-list{
+    justify-content: center;
+    gap: 25px;
+  }
+}
