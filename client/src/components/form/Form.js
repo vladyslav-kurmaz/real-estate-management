@@ -1,46 +1,59 @@
 import "./form.css";
-import DebetCard from "../debetCard/DebetCard.js";
 import React, { useState } from "react";
+import {login, registration} from "../services/http";
 
 function Form({form}) {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [formRen, setFormRen] = useState(form);
+  const [bankDetails, setBankDetails] = useState("");
 
-  const sendDataToDb = (event) => {
-    event.preventDefault();
+  const loginClick = async (e) => {
 
-    if (fullName.trim() === "") {
-      alert("Введіть ваше ім'я");
+    e.preventDefault();
+    if (!/\S+@\S+\.\S+/.test(email) || password.trim() === "") {
+      alert("Введіть всі дані");
       return;
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      alert("Введіть корректну пошту");
-      return;
-    } else if (password.trim() === "" || password.trim() === "") {
-      alert("Введіть пароль");
-      return;
-    } else {
-      setFullName("");
-      setEmail("");
-      setPassword("");
     }
 
-    let FormData = {
-      fullName: fullName,
+    let formData = {
       email: email,
       password: password,
     };
-    console.log(FormData);
+
+    await login(formData);
+
+    setEmail('')
+    setPassword('')
+  };
+
+  const registerClick = async (e) => {
+
+    e.preventDefault();
+    if (fullName.trim() === "" || !/\S+@\S+\.\S+/.test(email) || password.trim() === "" || bankDetails.trim() === "") {
+      alert("Введіть всі дані");
+      return;
+    }
+
+    let formData = {
+      email: email,
+      fullName: fullName,
+      bankDetails: bankDetails,
+      password: password,
+    };
+    await registration(formData);
+
+    setEmail('')
+    setPassword('')
+    setBankDetails('')
+    setFullName('')
   };
 
   const typeForm = (data) => {
     return data === 'Enter' ? (
-      <div onSubmit={sendDataToDb} className="form">
       <div className="container">
         <form className="form__inner">
           <h3 className="form__name">Вхід</h3>
-          <p className="form__descr">Введіть Ваше ім'я та прізвище</p>
           <p className="form__descr">Введіть Вашу пошту</p>
           <input
             onChange={(e) => setEmail(e.target.value)}
@@ -57,14 +70,11 @@ function Form({form}) {
             className="form__input"
             placeholder="Введіть пароль"
           />
-          <button className="form__submit" type="submit">
+          <button onClick={loginClick}  className="form__submit" type="submit">
             Submit
           </button>
-          
         </form>
-      </div>
     </div>  ) : (
-      <div onSubmit={sendDataToDb} className="form">
       <div className="container">
         <form className="form__inner">
           <h3 className="form__name">Реєстрація</h3>
@@ -92,12 +102,24 @@ function Form({form}) {
             className="form__input"
             placeholder="Введіть пароль"
           />
-          <button className="form__submit" type="submit">
+          <div className="card">
+            <div className="container">
+              <div className="card__inner">
+                <p className="card__descr">Введіть номер карти</p>
+                <input
+                    onChange={(e) => setBankDetails(e.target.value)}
+                    value={bankDetails}
+                    placeholder="****************"
+                    className="card__input"
+                    type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <button onClick={registerClick} className="form__submit" type="submit">
             Submit
           </button>
-          <DebetCard />
         </form>
-      </div>
     </div>  )
   }
 
