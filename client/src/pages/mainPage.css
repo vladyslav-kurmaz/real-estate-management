@@ -8,6 +8,21 @@
     padding: 0 10px;
 }
 
+.dream {
+    font-size: 200px;
+    color: white;
+}
+.better {
+    font-style: italic;
+    position: relative;
+    font-size: 35px;
+    color: white;
+}
+
+.text {
+    z-index: 100;
+}
+
 .mainPage__overlay {
     width: 100%;
     height: 100vh;
@@ -23,7 +38,7 @@
 }
 .mainPage__nav {
     margin: 0 auto;
-    width: 40%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

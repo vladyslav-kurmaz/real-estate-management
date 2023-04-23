@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import mainImage from '../image/mainPage/mainPage.jpg';
 
 import './mainPage.css'
@@ -17,15 +15,8 @@ const MainPage = ({form}) => {
             <div className='mainPage__overlay'></div>
             <img src={mainImage} className='mainPage__img' alt="House in mountain" />
             <div className="mainPage__nav">
-                <Link to={`/login`} 
-                    className="button mainPage__nav__button" 
-                    data-open='Enter'
-                    onClick={onActiveForm}>Вхід</Link>
-                <Link to={'/singup'} 
-                    className="button mainPage__nav__button" 
-                    data-open='SingUp'
-                    onClick={onActiveForm}>Реєстрація</Link>
-                <Link to={'/productpage'} className="button mainPage__nav__button">Огляд пропозицій</Link>
+                <p className='dream'>Dream House</p>
+                <p className='better'>Краще не знайдеш</p>
             </div>
         </main>
             </>

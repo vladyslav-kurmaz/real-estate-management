@@ -33,9 +33,11 @@
     justify-content: space-between;
 }
 
+.buttonEnter {
+    margin: 0;
+}
 
 .header__button {
-    width: 250px;
     display: flex;
     justify-content: space-between;
 }

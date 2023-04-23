@@ -24,9 +24,7 @@ const Header = ({form}) => {
       <header className="header">
         <nav className="header__nav">
               <Link to={"/"}>Головна</Link>
-
-          <div className="header__button">
-
+            <div className="header__button" style={{width: token ? '250px' : '150px'}}>
               <Link
                   to={"/productpage"}
                   className="button"
@@ -50,7 +48,7 @@ const Header = ({form}) => {
                           to={"/login"}
                           onClick={onActiveForm}
                           data-open="Enter"
-                          className="button"
+                          className="buttonEnter"
                       >
                           Вхід
                       </Link>
