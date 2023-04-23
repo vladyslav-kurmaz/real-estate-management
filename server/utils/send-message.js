@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer')
 const pino = require('pino')
 
 const logger = pino({
@@ -7,24 +7,23 @@ const logger = pino({
     },
 })
 
-
 const sendMessage = async (data) => {
     try {
-        const message = "Через три дня необхідно буде оплатити квартиру\n"
+        const message = 'Через три дня необхідно буде оплатити квартиру\n'
 
         const transporter = nodemailer.createTransport({
             service: 'outlook',
             auth: {
                 user: process.env.LOGIN_EMAIL,
-                pass: process.env.PASSWORD_EMAIL
-            }
-        });
+                pass: process.env.PASSWORD_EMAIL,
+            },
+        })
 
         await transporter.sendMail({
             from: process.env.LOGIN_EMAIL,
             to: data.email,
             subject: 'Нагадування: оплата квартири',
-            text: message
+            text: message,
         })
         return true
     } catch (e) {

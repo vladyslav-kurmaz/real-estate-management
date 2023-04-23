@@ -10,7 +10,16 @@ const logger = pino({
 
 const create = async (req, res) => {
     try {
-        const {name, description, address, rooms, squareArea, price, photos, status} = req.body
+        const {
+            name,
+            description,
+            address,
+            rooms,
+            squareArea,
+            price,
+            photos,
+            status,
+        } = req.body
 
         const token = req.headers.authorization.replace(/Bearer\s?/, '')
         const decoded = jwt.decode(token, { verify: false })
@@ -24,7 +33,7 @@ const create = async (req, res) => {
             squareArea,
             price,
             photos,
-            status
+            status,
         })
 
         await newApartment.save()
@@ -43,9 +52,7 @@ const getById = async (req, res) => {
         const apartment = await apartmentModel.findOne({ _id: id })
 
         if (!apartment) {
-            return res
-                .status(404)
-                .send(`Apartment doesn't exist`)
+            return res.status(404).send(`Apartment doesn't exist`)
         }
 
         res.json(apartment)
@@ -53,7 +60,6 @@ const getById = async (req, res) => {
         logger.error(e)
         res.sendStatus(500)
     }
-
 }
 const getApartmentsByFilter = async (req, res, filter) => {
     try {
@@ -99,15 +105,15 @@ const getByName = async (req, res) => {
 }
 
 const getAll = async (req, res) => {
-    const filter = { status: { $ne: "Archived" } }
+    const filter = { status: { $ne: 'Archived' } }
     await getApartmentsByFilter(req, res, filter)
 }
 
 const update = async (req, res) => {
     try {
         const { id } = req.params
-        const {status} = req.body
-        await apartmentModel.updateOne({ _id: id }, {status})
+        const { status } = req.body
+        await apartmentModel.updateOne({ _id: id }, { status })
 
         res.sendStatus(200)
     } catch (e) {
@@ -116,18 +122,24 @@ const update = async (req, res) => {
     }
 }
 
-
 const toRent = async (req, res) => {
     try {
         const { id } = req.params
         const token = req.headers.authorization.replace(/Bearer\s?/, '')
         const decoded = jwt.decode(token, { verify: false })
 
-        const newPaymentDate = new Date();
-        newPaymentDate.setHours(12, 0, 0, 0);
-        newPaymentDate.setDate(newPaymentDate.getDate() + 4);
+        const newPaymentDate = new Date()
+        newPaymentDate.setHours(12, 0, 0, 0)
+        newPaymentDate.setDate(newPaymentDate.getDate() + 4)
 
-        await apartmentModel.updateOne({ _id: id }, { inhabitant: decoded._id, status: "surrendered", paymentDate: newPaymentDate})
+        await apartmentModel.updateOne(
+            { _id: id },
+            {
+                inhabitant: decoded._id,
+                status: 'surrendered',
+                paymentDate: newPaymentDate,
+            },
+        )
 
         res.sendStatus(200)
     } catch (e) {

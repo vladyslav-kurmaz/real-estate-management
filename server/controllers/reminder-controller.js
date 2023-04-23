@@ -10,10 +10,13 @@ const logger = pino({
 
 const getByDate = async (date) => {
     try {
-        let futureDate = new Date(date.getTime() + (28 * 24 * 60 * 60 * 1000));
-        const users = await apartmentModel.findOneAndUpdate({ paymentDate: date }, {paymentDate: futureDate})
+        let futureDate = new Date(date.getTime() + 28 * 24 * 60 * 60 * 1000)
+        const users = await apartmentModel.findOneAndUpdate(
+            { paymentDate: date },
+            { paymentDate: futureDate },
+        )
 
-        return users.map(data => ({_id: data._id}))
+        return users.map((data) => ({ _id: data._id }))
     } catch (e) {
         logger.error(e)
         return []
@@ -30,4 +33,4 @@ const getEmail = async (data) => {
     }
 }
 
-module.exports = {getByDate, getEmail}
+module.exports = { getByDate, getEmail }
