@@ -147,9 +147,13 @@
     max-width: 100%;
     width: 100%;
   }
-  .product__item > a > div{
-    width: 100%;
+
+  .product__item-status {
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
   }
+
   .product__item-description{
     max-width: 100%;
   }

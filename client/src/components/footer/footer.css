@@ -80,7 +80,7 @@ border-bottom:  1px solid #2c2c2c;
   .footer__item{
   font-size: 16px;
   line-height: 18px;
-}
+  }
 }
 
 
@@ -91,6 +91,7 @@ border-bottom:  1px solid #2c2c2c;
 }
 .footer{
   padding: 15px 0;
+  height: 150px;
 }
 .footer__inner{
   gap: 10px;
