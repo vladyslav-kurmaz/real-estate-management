@@ -3,14 +3,11 @@ import { useParams } from "react-router-dom";
 import "./OneProductPage.css";
 
 const OneProductPage = () => {
-  
-
   return (
     <>
       <div className="cart">
         <div className="container">
           <div className="cart__inner">
-
             <div className="cart__img-box">
               <img src="./image" alt="cart" className="cart__img" />
             </div>
@@ -56,9 +53,7 @@ const OneProductPage = () => {
                   1300
                   <p>Грн</p>
                 </div>
-                <button className="cart__btn">
-                  Орендувати
-                </button>
+                <button className="cart__btn">Орендувати</button>
               </div>
             </div>
           </div>

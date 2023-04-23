@@ -16,26 +16,26 @@ import DebetCart from "../debetCard/DebetCard";
 function App() {
   const [form, setForm] = useState('');
   return (
-    // <Router>
-    //   <div >
-    //     {/* <Header/> */}
-    //     <Routes>
-    //       <Route path="/" element={<MainPage form={setForm}/>}/>
+    <Router>
+      <div >
+        {/* <Header/> */}
+        <Routes>
+          <Route path="/" element={<MainPage form={setForm}/>}/>
 
-    //       <Route path="/" element={<Owerlay form={setForm}/>}>
-    //         <Route path="/login" element={<LoginOrSing form={form}/>}/>
+          <Route path="/" element={<Owerlay form={setForm}/>}>
+            <Route path="/login" element={<LoginOrSing form={form}/>}/>
 
-    //         <Route path="/singup" element={<LoginOrSing form={form}/>}/>
+            <Route path="/singup" element={<LoginOrSing form={form}/>}/>
 
-    //         <Route path="/productpage" element={<ProductsPage />} />
-    //         <Route
-    //           path="/productpage/:productId"
-    //           element={<OneProductPage />}
-    //         />
-    //       </Route>
-    //     </Routes>
-    //   </div>
-    // </Router>
+            <Route path="/productpage" element={<ProductsPage />} />
+            <Route
+              path="/productpage/:productId"
+              element={<OneProductPage />}
+            />
+          </Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
