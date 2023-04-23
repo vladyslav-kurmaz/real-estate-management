@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import mainImage from '../image/mainPage/mainPage.jpg';
 
 import './mainPage.css'
+import Header from "../components/header/header";
 const MainPage = ({form}) => {
 
     const onActiveForm = (e) => {
@@ -10,6 +11,8 @@ const MainPage = ({form}) => {
     }
 
     return (
+        <>
+        <Header form={form}/>
         <main className='mainPage'>
             <div className='mainPage__overlay'></div>
             <img src={mainImage} className='mainPage__img' alt="House in mountain" />
@@ -25,6 +28,7 @@ const MainPage = ({form}) => {
                 <Link to={'/productpage'} className="button mainPage__nav__button">Огляд пропозицій</Link>
             </div>
         </main>
+            </>
     )
 }
 

@@ -1,12 +1,11 @@
 .header {
     max-width: 1300px;
-    height: 100px;
+    height: 60px;
     margin: 0 auto;
     display: flex;
     align-items:center;
     justify-content: center;
     padding: 0 10px;
-
 }
 
 .header a {
@@ -29,12 +28,14 @@
 .header__nav {
     margin: 0 auto;
     width: 100%;
+    max-height: 36px;
     display: flex;
     justify-content: space-between;
 }
 
+
 .header__button {
-    width: 150px;
+    width: 250px;
     display: flex;
     justify-content: space-between;
 }
@@ -44,8 +45,8 @@
   border: 1px solid #00000088;
   border-radius: 10px;
   padding: 10px;
+    margin-left: 30px;
   cursor: pointer;
-  height: 50px;
   transition: all .5s;
 }
 /* 

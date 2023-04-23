@@ -1,7 +1,7 @@
 import "./form.css";
 import React, { useState } from "react";
 import {login, registration} from "../services/http";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 function Form({form}) {
   const navigate = useNavigate();
@@ -77,6 +77,17 @@ function Form({form}) {
           <button onClick={loginClick}  className="form__submit" type="submit">
             Submit
           </button>
+          <div>
+            Не маєте аккаунту?
+          <Link
+              to={"/singup"}
+              onClick={window.location.reload}
+              data-open="SingUp"
+              className="button"
+          >
+             Реєстрація
+          </Link>
+          </div>
         </form>
     </div>  ) : (
       <div className="container">

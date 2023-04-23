@@ -23,16 +23,27 @@ const Header = ({form}) => {
     return (
       <header className="header">
         <nav className="header__nav">
-          <ul className="header__nav-list">
-            <li className="header__nav-list-item">
               <Link to={"/"}>Головна</Link>
-            </li>
-            {/* <li className="header__nav-list-item">Розмістити оголошення</li> */}
-          </ul>
 
           <div className="header__button">
+
+              <Link
+                  to={"/productpage"}
+                  className="button"
+              >
+                  Пропозиції
+              </Link>
               { token ?
-                  <button onClick={logoutClick} className="logout">Вийти з аккаунту</button>
+                  <>
+                      <Link
+                          to={"/product-create"}
+                          className="button"
+                      >
+                          Створити
+                      </Link>
+
+                      <button onClick={logoutClick} className="logout">Вийти</button>
+                  </>
                   :
                   <>
                       <Link
@@ -42,14 +53,6 @@ const Header = ({form}) => {
                           className="button"
                       >
                           Вхід
-                      </Link>
-                      <Link
-                          to={"/singup"}
-                          onClick={onActiveForm}
-                          data-open="SingUp"
-                          className="button"
-                      >
-                          Реєстрація
                       </Link>
                   </>
               }
