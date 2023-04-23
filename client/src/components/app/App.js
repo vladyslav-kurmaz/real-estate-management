@@ -11,7 +11,6 @@ import Owerlay from "../../pages/Owerlay";
 import CabinetPage from "../../pages/CabinetPage";
 import "./App.css";
 import AddHouse from "../../pages/AddHouse";
-import DebetCart from "../debetCard/DebetCard";
 
 function App() {
     const [form, setForm] = useState('');
