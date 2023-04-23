@@ -56,3 +56,66 @@
   color: #fff;
   margin-bottom: 30px;
 }
+
+.card {
+  padding: 5px;
+}
+
+.card__inner {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card__title{
+  font-size: 22px;
+  line-height: 23px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.card__descr {
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.card__input {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 20px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #1a1a1a;
+}
+
+.card__date-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card__date {
+  max-width: 80px;
+  margin: 0 3px;
+}
+
+.card__cvv {
+  max-width: 80px;
+}
+
+.card__code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media(max-width:420px){
+  .card__date-container {
+    flex-direction: column;
+  }
+}

@@ -1,13 +1,8 @@
 import axios from "./axios";
 
 export const registration = async (data) => {
-    // для реєстрації
-    /*
-    email string
-    fullName string
-    bankDetails string
-    password string
-    */
+    // work
+
     try {
         await axios.post('/registration', data);
     } catch (e) {
@@ -16,14 +11,10 @@ export const registration = async (data) => {
 }
 
 export const login = async (data) => {
-    // для входу
-    /*
-    email
-    password
-    */
+    // work
     try {
-        const {token} = await axios.post('/login', data);
-        localStorage.setItem("token",token)
+        const info = await axios.post('/login', data)
+        await localStorage.setItem("token", info.data.token);
     } catch (e) {
         return e
     }
