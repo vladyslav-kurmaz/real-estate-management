@@ -1,5 +1,5 @@
 import "./footer.css";
-import logo from'../../image/hydra.webp'
+import logo from "../../image/hydra.webp";
 import linkedin from "../../image/linkedin.svg";
 function Footer() {
   return (
@@ -11,17 +11,26 @@ function Footer() {
           </a>
           <ul className="footer__developers-list">
             <li className="footer__item">
-              <h4 className="footer__name">Vladyslav Kurmaz</h4>
-            </li>
-            <li className="footer__item">
-              <h4 className="footer__name">Viacheslav Zalotnyi</h4>
-            </li>
-            <li className="footer__item">
-              <h4 className="footer__name">Yurii Ushynskyi</h4>
-            </li>
-            <li className="footer__item">
-              <h4 className="footer__name">Ivan Sheichuk</h4>
               <a href="#" className="footer__link">
+                <h4 className="footer__name">Vladyslav Kurmaz</h4>
+                <img src={linkedin} alt="linkedin" className="footer__img" />
+              </a>
+            </li>
+            <li className="footer__item">
+              <a href="#" className="footer__link">
+                <h4 className="footer__name">Viacheslav Zalotnyi</h4>
+                <img src={linkedin} alt="linkedin" className="footer__img" />
+              </a>
+            </li>
+            <li className="footer__item">
+              <a href="#" className="footer__link">
+                <h4 className="footer__name">Yurii Ushynskyi</h4>
+                <img src={linkedin} alt="linkedin" className="footer__img" />
+              </a>
+            </li>
+            <li className="footer__item">
+              <a href="#" className="footer__link">
+                <h4 className="footer__name">Ivan Sheichuk</h4>
                 <img src={linkedin} alt="linkedin" className="footer__img" />
               </a>
             </li>
