@@ -6,37 +6,33 @@ import "./ProductList.css";
 import notImage from "../../image/notImage.png";
 import { useEffect, useState } from "react";
 
-
 import { getApartments } from "../services/http";
 
-const ProductList = ({filter, dataFilter}) => {
-    const [data, setData] = useState({});
-    const [loading, setLoading] = useState(false);
+const ProductList = ({ filter, dataFilter }) => {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        setLoading(true);
-        getApartments()
-            .then(setData)
-            .then(() => setLoading(false));
-    },[])
+  useEffect(() => {
+    setLoading(true);
+    getApartments()
+      .then(setData)
+      .then(() => setLoading(false));
+  }, []);
 
-
-    const statusTranslate = (status) => {
-        switch(status) {
-            case 'for-sale':
-                return 'Продається';
-            case 'sold':
-                return 'Продано';
-            case 'surrendered':
-                return 'Здає\'ться';
-            case 'appear':
-                return 'Оренда';
-            case 'archived':
-                return 'Архівовано';
-        }
+  const statusTranslate = (status) => {
+    switch (status) {
+      case "for-sale":
+        return "Продається";
+      case "sold":
+        return "Продано";
+      case "surrendered":
+        return "Здає'ться";
+      case "appear":
+        return "Оренда";
+      case "archived":
+        return "Архівовано";
     }
-  
-
+  };
 
   const renderItem = (data) => {
     console.log(filter);
@@ -80,19 +76,18 @@ const ProductList = ({filter, dataFilter}) => {
     });
   };
 
-  const spiner = loading ? <Spinner/> : null;
-  const content = !loading && data ? renderItem(dataFilter === '' ? data : dataFilter) : null
+  const spiner = loading ? <Spinner /> : null;
+  const content =
+    !loading && data ? renderItem(dataFilter === "" ? data : dataFilter) : null;
 
   return (
     <div className="product__container">
-         <ul className="product__list">
-            {spiner}
-            {content}
-                
-        </ul>
+      <ul className="product__list">
+        {spiner}
+        {content}
+      </ul>
     </div>
   );
 };
-
 
 export default ProductList;

@@ -44,6 +44,13 @@
   transition: all .5s;
   color: black;
   border-bottom:  1px solid #2c2c2c;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.footer__link{
+  width: 20px;
+  height: 20px;
 }
 
 
