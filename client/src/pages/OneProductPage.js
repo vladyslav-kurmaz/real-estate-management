@@ -38,7 +38,7 @@ const OneProductPage = () => {
         case 'archived':
             return 'Архівовано';
     }
-}
+  }
 
   const renderItem = ({photos, name, description, address, rooms, squareArea, price, status}) => {
     console.log(data);
