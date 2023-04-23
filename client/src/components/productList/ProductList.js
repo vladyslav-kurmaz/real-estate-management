@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Spinner from "../spiner/spiner";
 
-import mainImage from "../../image/mainPage/mainPage.jpg";
 
 import "./ProductList.css";
 import notImage from "../../image/notImage.png";
