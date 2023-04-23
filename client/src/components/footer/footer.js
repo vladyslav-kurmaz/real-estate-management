@@ -17,19 +17,25 @@ function Footer() {
               </a>
             </li>
             <li className="footer__item">
-              <a href="#" className="footer__link">
+              <a
+                href="https://www.linkedin.com/in/viacheslav-zalotnyi-86695a23b/"
+                className="footer__link"
+              >
                 <h4 className="footer__name">Viacheslav Zalotnyi</h4>
                 <img src={linkedin} alt="linkedin" className="footer__img" />
               </a>
             </li>
             <li className="footer__item">
-              <a href="#" className="footer__link">
+              <a href="https://github.com/Orthegef" className="footer__link">
                 <h4 className="footer__name">Yurii Ushynskyi</h4>
                 <img src={linkedin} alt="linkedin" className="footer__img" />
               </a>
             </li>
             <li className="footer__item">
-              <a href="#" className="footer__link">
+              <a
+                href="https://www.linkedin.com/in/ivan-sheichuk/"
+                className="footer__link"
+              >
                 <h4 className="footer__name">Ivan Sheichuk</h4>
                 <img src={linkedin} alt="linkedin" className="footer__img" />
               </a>

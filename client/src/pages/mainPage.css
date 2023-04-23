@@ -1,3 +1,13 @@
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
 .mainPage {
     height: calc(100vh - 60px);
     margin: 0 auto;
@@ -106,4 +116,13 @@
   .mainPage__nav__button {
     font-size: 22px;
 }
+.dream{
+  font-size: 40px;
+}
+.mainPage__nav{
+  flex-direction: column;
+      width: -webkit-fill-available;
+
+}
+
 }

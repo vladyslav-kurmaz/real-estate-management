@@ -12,6 +12,8 @@ const ProductList = ({filter, dataFilter, tempData, setPagination, numPagi}) => 
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);
 
+
+
   useEffect(() => {
     // console.log(pagination);
     setLoading(true);
@@ -46,9 +48,29 @@ const ProductList = ({filter, dataFilter, tempData, setPagination, numPagi}) => 
     }
   };
 
-  const renderItem = (data) => {
-    
-    console.log(data);
+   
+
+    const renderItem = (data) => {
+
+        /**Animation */
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+                } else {
+                reveals[i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+        /**Animation */
+
+
     return data.apartments?.map((flat) => {
       const {
         _id,
@@ -63,7 +85,7 @@ const ProductList = ({filter, dataFilter, tempData, setPagination, numPagi}) => 
       } = flat;
       const photo = photos.length === 0 ? notImage : photos[0];
       return (
-        <li className="product__item" key={_id}>
+        <li className="product__item " key={_id}>
           <Link to={`/productpage/${_id}`}>
             <img className="product__item-main-image" src={photo} alt={name} />
             <div>
@@ -89,15 +111,17 @@ const ProductList = ({filter, dataFilter, tempData, setPagination, numPagi}) => 
     });
   };
 
+
   const spiner = loading ? <Spinner/> : null;
   const content = !loading && data ? renderItem(dataFilter === '' ? data : dataFilter) : null
 
+
   return (
     <div className="product__container">
-         <ul className="product__list">
-            {spiner}
-            {content}              
-        </ul>
+      <ul className="product__list">
+        {spiner}
+        {content}
+      </ul>
     </div>
   );
 };

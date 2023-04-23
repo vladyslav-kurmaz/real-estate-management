@@ -1,9 +1,9 @@
 const userModel = require('../models/user-model')
 const operationModel = require('../models/operation-model')
 const apartmentModel = require('../models/apartment-model')
-const crypto = require('node:crypto')
 const jwt = require('jsonwebtoken')
 const pino = require('pino')
+const bcrypt = require("bcrypt");
 
 const logger = pino({
     transport: {
@@ -13,7 +13,7 @@ const logger = pino({
 
 const registration = async (req, res) => {
     try {
-        const {email, fullName, bankDetails, password} = req.body
+        const { email, fullName, bankDetails, password } = req.body
 
         const user = await userModel.findOne({ email })
 
@@ -23,9 +23,8 @@ const registration = async (req, res) => {
                 .send(`User with '${email}' email already exists`)
         }
 
-         const cryptoPassword = crypto
-            .pbkdf2Sync(password, process.env.SALT, 2000, 64, 'sha512')
-            .toString('hex')
+        const salt = parseInt(process.env.SALT)
+        const cryptoPassword = bcrypt.hashSync(password, salt)
 
         const newUser = new userModel({
             email,
@@ -54,11 +53,12 @@ const login = async (req, res) => {
                 .send(`User with '${email}' email doesn't exist`)
         }
 
-        const cryptoPassword = crypto
-            .pbkdf2Sync(password, process.env.SALT, 2000, 64, 'sha512')
-            .toString('hex')
+        const isValidPass = await bcrypt.compare(
+            password,
+            user.password
+        )
 
-        if (cryptoPassword !== user.password) {
+        if (!isValidPass) {
             return res.status(401).send('Invalid password')
         }
 
@@ -82,7 +82,7 @@ const getOwnApartments = async (req, res) => {
 
         const apartments = await apartmentModel.find({ owner: decoded._id })
 
-        res.json({apartments})
+        res.json({ apartments })
     } catch (e) {
         logger.error(e)
         res.sendStatus(500)
@@ -94,9 +94,11 @@ const getRentApartments = async (req, res) => {
         const token = req.headers.authorization.replace(/Bearer\s?/, '')
         const decoded = jwt.decode(token, { verify: false })
 
-        const apartments = await apartmentModel.find({ inhabitant: decoded._id })
+        const apartments = await apartmentModel.find({
+            inhabitant: decoded._id,
+        })
 
-        res.json({apartments})
+        res.json({ apartments })
     } catch (e) {
         logger.error(e)
         res.sendStatus(500)
@@ -105,7 +107,7 @@ const getRentApartments = async (req, res) => {
 
 const createOperation = async (req, res) => {
     try {
-        const {id} = req.params
+        const { id } = req.params
 
         const token = req.headers.authorization.replace(/Bearer\s?/, '')
         const decoded = jwt.decode(token, { verify: false })
@@ -113,7 +115,7 @@ const createOperation = async (req, res) => {
         const newOperation = new operationModel({
             apartment: id,
             inhabitant: decoded._id,
-            date: Date.now()
+            date: Date.now(),
         })
 
         await newOperation.save()
@@ -126,7 +128,7 @@ const createOperation = async (req, res) => {
 
 const getOperation = async (req, res) => {
     try {
-        const {id} = req.params
+        const { id } = req.params
 
         const token = req.headers.authorization.replace(/Bearer\s?/, '')
         const decoded = jwt.decode(token, { verify: false })
@@ -137,9 +139,11 @@ const getOperation = async (req, res) => {
             return res.status(400)
         }
 
-        const operations = await operationModel.find({ apartment: id }).sort({ _id: -1 });
+        const operations = await operationModel
+            .find({ apartment: id })
+            .sort({ _id: -1 })
 
-        res.json({operations})
+        res.json({ operations })
     } catch (e) {
         logger.error(e)
         res.sendStatus(500)

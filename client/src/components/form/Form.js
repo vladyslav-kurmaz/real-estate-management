@@ -1,7 +1,8 @@
 import "./form.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {login, registration} from "../services/http";
 import {Link, useNavigate} from "react-router-dom";
+
 
 function Form({form}) {
   const navigate = useNavigate();
@@ -10,8 +11,29 @@ function Form({form}) {
   const [password, setPassword] = useState("");
   const [bankDetails, setBankDetails] = useState("");
 
-  const loginClick = async (e) => {
+  /**Animation */
+  useEffect(() => {
+    reveal(); // виклик функції при рендерингу компонента
+  });
 
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+  window.addEventListener("scroll", reveal);
+  reveal();
+  /**Animation */
+
+  const loginClick = async (e) => {
     e.preventDefault();
     if (!/\S+@\S+\.\S+/.test(email) || password.trim() === "") {
       alert("Введіть всі дані");
@@ -25,15 +47,19 @@ function Form({form}) {
 
     await login(formData);
 
-    setEmail('')
-    setPassword('')
-    navigate('/');
+    setEmail("");
+    setPassword("");
+    navigate("/");
   };
 
   const registerClick = async (e) => {
-
     e.preventDefault();
-    if (fullName.trim() === "" || !/\S+@\S+\.\S+/.test(email) || password.trim() === "" || bankDetails.trim() === "") {
+    if (
+      fullName.trim() === "" ||
+      !/\S+@\S+\.\S+/.test(email) ||
+      password.trim() === "" ||
+      bankDetails.trim() === ""
+    ) {
       alert("Введіть всі дані");
       return;
     }
@@ -46,17 +72,17 @@ function Form({form}) {
     };
     await registration(formData);
 
-    setEmail('')
-    setPassword('')
-    setBankDetails('')
-    setFullName('')
-    navigate('/');
+    setEmail("");
+    setPassword("");
+    setBankDetails("");
+    setFullName("");
+    navigate("/");
   };
 
   const typeForm = (data) => {
-    return data === 'Enter' ? (
+    return data === "Enter" ? (
       <div className="container">
-        <form className="form__inner">
+        <form className="form__inner reveal">
           <h3 className="form__name">Вхід</h3>
           <p className="form__descr">Введіть Вашу пошту</p>
           <input
@@ -74,22 +100,23 @@ function Form({form}) {
             className="form__input"
             placeholder="Введіть пароль"
           />
-          <button onClick={loginClick}  className="form__submit" type="submit">
+          <button onClick={loginClick} className="form__submit" type="submit">
             Submit
           </button>
           <div>
             Не маєте аккаунту?
-          <Link
+            <Link
               to={"/singup"}
               onClick={window.location.reload}
               data-open="SingUp"
               className="button"
-          >
-             Реєстрація
-          </Link>
+            >
+              Реєстрація
+            </Link>
           </div>
         </form>
-    </div>  ) : (
+      </div>
+    ) : (
       <div className="container">
         <form className="form__inner">
           <h3 className="form__name">Реєстрація</h3>
@@ -122,27 +149,28 @@ function Form({form}) {
               <div className="card__inner">
                 <p className="card__descr">Введіть номер карти</p>
                 <input
-                    onChange={(e) => setBankDetails(e.target.value)}
-                    value={bankDetails}
-                    placeholder="****************"
-                    className="card__input"
-                    type="text"
+                  onChange={(e) => setBankDetails(e.target.value)}
+                  value={bankDetails}
+                  placeholder="****************"
+                  className="card__input"
+                  type="text"
                 />
               </div>
             </div>
           </div>
-          <button onClick={registerClick} className="form__submit" type="submit">
+          <button
+            onClick={registerClick}
+            className="form__submit"
+            type="submit"
+          >
             Submit
           </button>
         </form>
-    </div>  )
-  }
+      </div>
+    );
+  };
 
-  return (
-
-    typeForm(form)
-    
-  );
+  return typeForm(form);
 }
 
 export default Form;
