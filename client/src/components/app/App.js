@@ -22,7 +22,9 @@ function App() {
     }, [])
 
     return (
+      
         <Router>
+          
             <div >
                 {/* <Header/> */}
                 <Routes>
