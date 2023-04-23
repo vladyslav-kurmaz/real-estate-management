@@ -41,6 +41,26 @@ const ProductList = ({filter, dataFilter, tempData}) => {
 
   const renderItem = (data) => {
     console.log(dataFilter);
+
+    /**Animation */
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+    /**Animation */
+
+    
     return data.apartments?.map((flat) => {
       const {
         _id,
@@ -55,7 +75,7 @@ const ProductList = ({filter, dataFilter, tempData}) => {
       } = flat;
       const photo = photos.length === 0 ? notImage : photos[0];
       return (
-        <li className="product__item" key={_id}>
+        <li className="product__item " key={_id}>
           <Link to={`/productpage/${_id}`}>
             <img className="product__item-main-image" src={photo} alt={name} />
             <div>
@@ -88,10 +108,10 @@ const ProductList = ({filter, dataFilter, tempData}) => {
 
   return (
     <div className="product__container">
-         <ul className="product__list">
-            {spiner}
-            {content}              
-        </ul>
+      <ul className="product__list">
+        {spiner}
+        {content}
+      </ul>
     </div>
   );
 };
