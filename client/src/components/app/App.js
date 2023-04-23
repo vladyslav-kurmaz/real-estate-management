@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
 
 
 import {useEffect, useState} from "react";
@@ -29,18 +29,19 @@ function App() {
                     <Route path="/" element={<MainPage form={setForm}/>}/>
 
                     <Route path="/" element={<Owerlay form={setForm}/>}>
-                        { !token ?
+                        { !token &&
                             <>
                         <Route path="/login" element={<LoginOrSing form={form}/>}/>
                         <Route path="/singup" element={<LoginOrSing form={form}/>}/>
-                            </>
-                            : <></>}
+                            </>}
 
                         <Route path="/productpage" element={<ProductsPage />} />
                         <Route
                             path="/productpage/:productId"
                             element={<OneProductPage />}
                         />
+
+                        <Route path="*" element={<Navigate to={"/"} />} />
                     </Route>
                 </Routes>
             </div>
